@@ -1,0 +1,98 @@
+﻿@model Dms.Master.Models.PaginationModel
+@{
+    Layout = null;
+    int pageIndex = 1;
+    int pageCount = 1;
+    int pageSize = 10;
+    decimal totalCount = 1;
+
+    pageIndex = Model.pageIndex;
+    pageSize = Model.pageSize;
+    totalCount = Model.totalCount;
+
+    pageCount = Convert.ToInt32(Math.Ceiling(totalCount / pageSize));
+    pageCount = pageCount == 0 ? 1 : pageCount;
+    if (pageCount < pageIndex)
+    {
+        pageIndex = pageCount;
+        <script type="text/javascript">
+            dms.partial.setting.ajaxdata.pageIndex = "@pageIndex";
+            dms.partial.go(dms.partial.ajaxdata.pageIndex);
+        </script>
+    }
+    int beginPage = 1, endPage = 1, extPage = 9, avgLR = 4;
+
+    if (pageIndex > 1 && pageCount > 1)
+    {
+        <li><a href="#" data-index="1" title="首页">首页</a></li>
+        <li><a href="#" data-index="@(pageIndex - 1)" title="上一页">上一页</a></li>
+    }
+    else
+    {
+        <li class="disabled"><a>首页</a></li>
+            <li class="disabled"><a>上一页</a></li>
+    }
+    if (pageIndex > avgLR + 2 && pageCount > extPage)
+    {
+        <li><a href="#" data-index="@(pageIndex - avgLR)" title="...">...</a></li>
+    }
+
+    if (pageCount > extPage)
+    {
+        if (pageIndex - avgLR > 0)
+        {
+            if (pageIndex + avgLR < pageCount)
+            {
+                beginPage = pageIndex - avgLR;
+                endPage = beginPage + extPage - 1;
+            }
+            else
+            {
+                endPage = pageCount;
+                beginPage = endPage - extPage + 1;
+            }
+        }
+        else
+        {
+            endPage = extPage;
+        }
+    }
+    else
+    {
+        beginPage = 1;
+        endPage = pageCount;
+    }
+
+    for (int i = beginPage; i <= endPage; i++)
+    {
+        if (pageIndex == i)
+        {
+            <li class="active"><a href="#" data-index="" title="@(i.ToString())">@(i.ToString())</a></li>
+        }
+        else
+        {
+            <li><a href="#" data-index="@(i.ToString())" title="@(i.ToString())">@(i.ToString())</a></li>
+        }
+    }
+    if (pageIndex < pageCount && pageCount > 1)
+    {
+        if (pageIndex + avgLR < pageCount && pageCount > extPage)
+        {
+            <li><a href="#" data-index="@(pageIndex + avgLR)" title="...">...</a></li>
+        }
+        if (pageCount == pageIndex)
+        {
+            return;
+        }
+        <li><a href="#" data-index="@(pageIndex + 1)" title="下一页">下一页</a></li>
+        <li><a href="#" data-index="@(pageCount)" title="尾页">尾页</a></li>
+    }
+    else
+    {
+        <li class="disabled"><a>尾页</a></li>
+        <li class="disabled"><a>下一页</a></li>
+    }
+}
+<script>
+    dms.partial.setting.paging.ajaxData.totalCount = "@(totalCount)";
+</script>

@@ -1,0 +1,8 @@
+﻿@model Dms.Model.Lottery.LotteryStrategyVo
+@{ 
+    Layout = null;
+    var model = Model as Dms.Model.Lottery.LotteryStrategyVo;
+}
+<script>
+    $("#EditLotteryStrategy .dms-popwin-title-label").html("设置@(model.lottery_catalog_name)的策略");
+</script>

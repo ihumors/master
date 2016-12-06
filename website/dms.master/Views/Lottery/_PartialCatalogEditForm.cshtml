@@ -1,0 +1,9 @@
+﻿@model Dms.Model.Lottery.LotteryCatalogVo
+@{ 
+    Layout = null;
+    var model = Model as Dms.Model.Lottery.LotteryCatalogVo;
+
+}
+<script>
+    $("#EditLotteryCatalog .dms-popwin-title-label").html("@(model.lottery_catalog_id== 0?"添加抽奖活动":"编辑: "+model.name+ " 的抽奖活动")");
+</script>

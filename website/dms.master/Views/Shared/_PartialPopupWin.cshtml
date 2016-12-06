@@ -1,0 +1,33 @@
+﻿@model Dms.Master.Models.PopWinModel
+<div id="@(Model.ID)" class="dms-popwin" data-url="" data-argument="">
+    <div class="dms-popwin-title" ondblclick="$(this).find('a.popwin-max').is(':hidden') ? $(this).find('.popwin-revert').trigger('click') : $(this).find('.popwin-max').trigger('click')">
+        <div>
+            <a class="popwin-min" href="javascript:;" title="最小化"></a>
+            <a class="popwin-max" href="javascript:;" title="最大化"></a>
+            <a class="popwin-revert" href="javascript:;" title="还原"></a>
+            <a class="popwin-close" href="javascript:;" title="关闭"></a>
+        </div>
+        <label class="dms-popwin-title-label">loading...</label>
+    </div>
+    <div class="resizeL"></div>
+    <div class="resizeT"></div>
+    <div class="resizeR"></div>
+    <div class="resizeB"></div>
+    <div class="resizeLT"></div>
+    <div class="resizeTR"></div>
+    <div class="resizeBR"></div>
+    <div class="resizeLB"></div>
+    <div class="dms-popwin-content-wrapper">
+        <div class="dms-popwin-content">
+            玩命加载中...
+        </div>
+        @if (Model.HasBottomWrapper)
+        {
+            <div class="dms-popwin-bottom">
+                <span class="popwin-progress"></span>
+                <input id="@(Model.ID)-win-submit" data-id="@(Model.ID)" class="btn btn-sm btn-primary" type="button" value="提 交" onclick='dms.win.submit(this)' />
+                <input id="@(Model.ID)-win-cancel" data-id="@(Model.ID)" class="btn btn-sm btn-default" type="button" value="刷 新" onclick='dms.win.cancel(this)' />
+            </div>
+        }
+    </div>
+</div>

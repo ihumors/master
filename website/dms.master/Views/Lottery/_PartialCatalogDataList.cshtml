@@ -1,0 +1,41 @@
+﻿@model IEnumerable<Dms.Model.Lottery.LotteryCatalogVo>
+@{ 
+    Layout = null;
+    var list=Model as IEnumerable<Dms.Model.Lottery.LotteryCatalogVo>;
+    if(list==null || list.Count()==0)
+    {
+        <tr>
+            <td colspan="7">暂查无数据</td>
+        </tr>
+        return;
+    }
+    foreach (var item in list)
+    {
+        <tr class="@(item.row_number%2==0?"even":"odd")">
+            <td>@(item.row_number)</td>
+            <td>@(item.name)</td>
+            <td>
+                <input type="checkbox" data-id="@(item.lottery_catalog_id)" name="my-checkbox" @(item.is_enabled?"checked":"")>
+            </td>
+            <td>
+                <input type="checkbox" data-id="@(item.lottery_catalog_id)" name="my-checkbox" @(item.is_deleted?"checked":"")>
+            </td>
+            <td>@(item.create_time.ToString("yyyy/MM/dd HH:mm"))</td>
+            <td>@(item.created_by)</td>
+            <td>
+                <button type="button" class="btn btn-primary btn-sm" data-id="@(item.lottery_catalog_id)" onclick="dms.win.open(page.setting.ajax.editStrategyPartial.url + $(this).data('id'), 'EditLotteryStrategy', null)">设置策略</button>
+                <button type="button" class="btn btn-info btn-sm" data-id="@(item.lottery_catalog_id)">活动详情</button>
+            </td>
+        </tr>
+    }
+    <script>
+        $(dms.partial.setting.paging.pagingContainer).html(dms.partial.setting.paging.paingInnerHtml);
+        $(".dataTable-info").html("显示 "+@(list.Min(x => x.row_number))+" 到 "+@(list.Max(x=>x.row_number))+" 项，共 "+dms.partial.setting.paging.ajaxData.totalCount+" 项");
+        $("[name='my-checkbox']").bootstrapSwitch({ "size": "mini", onText: "是", offText: "否" }).on('switchChange.bootstrapSwitch', function (e, data) {
+            var $el = $(data.el)
+              , value = data.value;
+            alert($(this).attr("data-id"));
+            console.log(e, $el, value);
+        });
+    </script>
+}

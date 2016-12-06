@@ -1,0 +1,96 @@
+﻿@{
+    Layout = null;
+    Dms.Core.Crypto.DES2 crypto = new Dms.Core.Crypto.DES2();
+}
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <title>登录</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+    @Scripts.Render("~/bundles/modernizr")
+    @Styles.Render("~/Content/css")
+    <link href="/Content/uiframework/css/font-awesome.min.css?v=4.4.0" rel="stylesheet">
+    <link href="/Content/uiframework/css/animate.min.css" rel="stylesheet">
+    <link href="/Content/uiframework/css/style.min.css" rel="stylesheet">
+    <link href="/Content/uiframework/css/login.min.css" rel="stylesheet">
+    <link href="/Content/uiframework/css/plugins/iCheck/custom.css" rel="stylesheet">
+    <!--[if lt IE 8]>
+    <meta http-equiv="refresh" content="0;ie.html" />
+    <![endif]-->
+    <script>
+        if(window.top!==window.self){window.top.location=window.location};
+    </script>
+    <link href="~/Areas/Member/Content/Style.css" rel="stylesheet" />
+</head>
+
+<body class="signin">
+    <div class="signinpanel">
+        <div class="row">
+            <div class="col-sm-7">
+                <div class="signin-info">
+                    <div class="logopanel m-b">
+                        <h1>数据管理系统</h1>
+                    </div>
+                    <div class="m-b"></div>
+                    <h4>欢迎使用 <strong>DMS+ 后台管理系统</strong></h4>
+                    <ul class="m-b">
+                        <li><i class="fa fa-arrow-circle-o-right m-r-xs"></i> 优势一</li>
+                        <li><i class="fa fa-arrow-circle-o-right m-r-xs"></i> 优势二</li>
+                        <li><i class="fa fa-arrow-circle-o-right m-r-xs"></i> 优势三</li>
+                        <li><i class="fa fa-arrow-circle-o-right m-r-xs"></i> @(crypto.Decode(crypto.Encode("您可以使用同一种方法来帮助解决密码问题。 ")))</li>
+                    </ul>
+                    <strong><a href="">忘记密码了？</a></strong>
+                </div>
+            </div>
+            <div class="col-sm-5">
+                <form id="LoginForm" class="form-group" method="post" action="/Member/Security/Login">
+                    @Html.AntiForgeryToken()
+                    <h4 class="no-margins">登录<strong>DMS+</strong></h4>
+                    <input type="text" class="form-control uname" id="UserName" name="UserName" placeholder="用户名" />
+                    <input type="password" class="form-control pword m-b" id="Password" name="Password" placeholder="密码" />
+                    <p>
+                        <img src="/Member/Security/CodeImage" title="验证码" />
+                    </p>
+                    <div class="checkbox i-checks">
+                        <label>
+                            <input data-val="true" id="RememberMe" name="RememberMe" type="checkbox" value="true"><i></i> Remember me?
+                        </label>
+                    </div>
+                    <button type="submit" id="submit" class="btn btn-success btn-block">登录</button>
+                </form>
+            </div>
+        </div>
+        <div class="signup-footer">
+            <div class="pull-left">
+                &copy; @(DateTime.Now.Year) All Rights Reserved. 
+            </div>
+            <div>@(crypto.Encode("您可以使用同一种方法来帮助解决密码问题。 "))</div>
+        </div>
+    </div>
+
+    @Scripts.Render("~/bundles/bootstrap")
+    <script src="~/Areas/Member/Scripts/app.js"></script>
+    <script src="/Content/uiframework/js/content.min.js?v=1.0.0"></script>
+    <script src="/Content/uiframework/js/plugins/iCheck/icheck.min.js"></script>
+    <script type="text/javascript">
+        app.init();
+        $(".i-checks").iCheck({
+            checkboxClass: "icheckbox_square-green",
+            radioClass: "iradio_square-green"
+        });
+    </script>
+    @*
+        <system.web>
+            <machinekey validationkey="AutoGenerate|value[,IsolateApps]"
+                        decryptionkey="AutoGenerate|value[,IsolateApps]"
+                        validation="[SHA1|MD5|3DES]"
+                        decryption="[Auto|]" />
+        </system.web>
+                 指定一个手动分配的密钥。该值必须手动设置为十六进制字符串，以确保配置在整个网络场中保持一致。使用 DES 加密时，密钥长度应该为 16 个字符；
+                而使用三重 DES (3 DES) 加密时，密钥长度应该为 48 个字符。如果要使用长度小于最大长度的密钥，则应通过真正的随机方式（例如，通过使用 RNGCryptoServiceProvider 类）来创建这些密钥。
+                只有在计算机使用 128 位加密的情况下，ASP.NET 才能使用三重 DES。如果向 decryptionKey 值添加 IsolateApps 修饰符，ASP.NET 将使用每个应用程序的应用程序 ID 为每个应用程序生成一个唯一的加密密钥。
+                默认值为 "AutoGenerate,IsolateApps"。
+    *@
+</body>
+
+</html>

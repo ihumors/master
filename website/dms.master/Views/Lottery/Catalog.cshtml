@@ -1,0 +1,103 @@
+﻿@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewBag.Title = "抽奖活动目录信息列表";
+}
+@section Css{
+<link href="~/Content/uiframework/css/plugins/bootstrap-switch/bootstrap-switch.min.css" rel="stylesheet" />
+}
+@section Header{
+
+    <ol class="breadcrumb">
+        <li><a class="J_menuItem" data-href="/Lottery/Report" onclick="dms.hlus.n(this)">抽奖活动</a></li>
+        <li><a href="#">类目配置</a></li>
+    </ol>
+    <div class="row dms-search-container">
+
+        <div role="form" class="form-inline">
+            <div class="form-group pull-right">
+                <label>关键字:</label>
+                <input type="search" class="form-control input-sm" placeholder="请输入关键字" />
+                <button class="btn btn-sm btn-primary">查找</button>
+            </div>
+            @Html.Partial("_PartialDataListToolBar")
+        </div>
+    </div>
+}
+<div class="row">
+    <div class="col-sm-12">
+        <table class="table table-striped table-bordered table-hover  dataTable" id="editable" >
+            <thead>
+                <tr role="row">
+                    <th class="sorting" data-feild="0" aria-controls="editable" style="width: 80px;">行号</th>
+                    <th class="sorting_desc" data-feild="0" aria-controls="editable" aria-sort="descending" >类目名称</th>
+                    <th class="sorting" data-feild="0" aria-controls="editable" style="width: 100px;">启用状态</th>
+                    <th class="sorting" data-feild="0" aria-controls="editable" style="width: 100px;">删除状态</th>
+                    <th class="sorting" data-feild="0" aria-controls="editable" style="width: 140px;">创建时间</th>
+                    <th class="sorting" data-feild="0" aria-controls="editable" style="width: 100px;">创建人</th>
+                    <th aria-controls="editable" style="width: 160px;">操作</th>
+                </tr>
+            </thead>
+            <tbody id="datalist-container">
+                <tr>
+                    <td colspan="7">loading...</td>
+                </tr>
+            </tbody>
+        </table>
+        </div>
+    </div>
+@Html.Partial("_PartialPopupWin", new Dms.Master.Models.PopWinModel() { ID = "EditLotteryCatalog", HasBottomWrapper = true })
+@Html.Partial("_PartialPopupWin", new Dms.Master.Models.PopWinModel() { ID = "EditLotteryStrategy", HasBottomWrapper = true })
+@section Footer{
+    <ul class="pagination" id="paging-container"></ul>
+    <div class="dataTable-info" aria-live="polite">
+        显示 1 到 50 项，共 57 项
+    </div>
+}
+
+@section Scripts{
+    <script src="~/Content/uiframework/js/plugins/bootstrap-switch/bootstrap-switch.min.js"></script>
+    <script>
+        var page = {
+            setting: {
+                ajax: {
+                    editCatalogPartial: { name: "编辑活动内容窗口", url: dms.host + "Lottery/_PartialCatalogEditForm?lotteryCatalogId=" },
+                    editStrategyPartial: { name: "编辑活动策略窗口", url: dms.host + "Lottery/_PartialEditLotteryStrategy?lotteryCatalogId=" }
+                },
+            },
+            init: function () {
+                this.initPagination();
+                this.initPopupCfg();
+                dms.partial.go(1);
+            },
+            initPagination: function () {
+                $.extend(true, dms.partial.setting.paging, {
+                    ajaxUrl: dms.host + "Lottery/LoadLotteryCatalogDataList",
+                    listContainer: "#datalist-container",
+                    loadingContainer: "#loading",
+                    pagingContainer: "#paging-container",
+                    ajaxData: {
+                        pageSize: 8,
+                        id: "",
+                        pageId: null,
+                        sort: "[lottery_catalog_id]",
+                        sortBy: "asc"
+                    }
+                });
+            },
+            initPopupCfg: function () {
+                $.extend(true, dms.win.setting, {
+                    width: 800,
+                    height: 350
+                });
+            }
+        };
+        Object.extend(dms.tool, {
+            add: function ($this) {
+                dms.win.open(page.setting.ajax.editCatalogPartial.url + $($this).data("id"), 'EditLotteryCatalog', null);
+            },
+            delete: function () {
+            }
+        });
+        page.init();
+    </script>
+}

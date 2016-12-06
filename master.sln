@@ -1,0 +1,83 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.25123.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "dms.master", "website\dms.master\dms.master.csproj", "{53C75582-455F-4E7A-BBE6-A05E460F06DB}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "website", "website", "{46F78014-E51B-4D3F-8C7B-643FBB1183C7}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "library", "library", "{E9B986D3-4A1A-4734-BEA6-6038C5531A8E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Dms.Core", "library\Dms.Core\Dms.Core.csproj", "{593D623A-8FB0-4FA4-9D33-E80496024A20}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Dms.Model", "library\Dms.Model\Dms.Model.csproj", "{0DB7792C-E4BD-4885-A95A-56A0881DBD71}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Dms.Service", "library\Dms.Service\Dms.Service.csproj", "{184209AE-A2CC-4363-90DD-957341EBDC2B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Dms.Repository", "library\Dms.Repository\Dms.Repository.csproj", "{688A1D35-6E72-4CDF-B41F-82BF88A144D8}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{53C75582-455F-4E7A-BBE6-A05E460F06DB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{53C75582-455F-4E7A-BBE6-A05E460F06DB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{53C75582-455F-4E7A-BBE6-A05E460F06DB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{53C75582-455F-4E7A-BBE6-A05E460F06DB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{593D623A-8FB0-4FA4-9D33-E80496024A20}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{593D623A-8FB0-4FA4-9D33-E80496024A20}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{593D623A-8FB0-4FA4-9D33-E80496024A20}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{593D623A-8FB0-4FA4-9D33-E80496024A20}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0DB7792C-E4BD-4885-A95A-56A0881DBD71}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0DB7792C-E4BD-4885-A95A-56A0881DBD71}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0DB7792C-E4BD-4885-A95A-56A0881DBD71}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0DB7792C-E4BD-4885-A95A-56A0881DBD71}.Release|Any CPU.Build.0 = Release|Any CPU
+		{184209AE-A2CC-4363-90DD-957341EBDC2B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{184209AE-A2CC-4363-90DD-957341EBDC2B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{184209AE-A2CC-4363-90DD-957341EBDC2B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{184209AE-A2CC-4363-90DD-957341EBDC2B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{688A1D35-6E72-4CDF-B41F-82BF88A144D8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{688A1D35-6E72-4CDF-B41F-82BF88A144D8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{688A1D35-6E72-4CDF-B41F-82BF88A144D8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{688A1D35-6E72-4CDF-B41F-82BF88A144D8}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{53C75582-455F-4E7A-BBE6-A05E460F06DB} = {46F78014-E51B-4D3F-8C7B-643FBB1183C7}
+		{593D623A-8FB0-4FA4-9D33-E80496024A20} = {E9B986D3-4A1A-4734-BEA6-6038C5531A8E}
+		{0DB7792C-E4BD-4885-A95A-56A0881DBD71} = {E9B986D3-4A1A-4734-BEA6-6038C5531A8E}
+		{184209AE-A2CC-4363-90DD-957341EBDC2B} = {E9B986D3-4A1A-4734-BEA6-6038C5531A8E}
+		{688A1D35-6E72-4CDF-B41F-82BF88A144D8} = {E9B986D3-4A1A-4734-BEA6-6038C5531A8E}
+	EndGlobalSection
+	GlobalSection(TeamFoundationVersionControl) = preSolution
+		SccNumberOfProjects = 6
+		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
+		SccTeamFoundationServer = http://192.168.1.223:8080/tfs/defaultcollection
+		SccLocalPath0 = .
+		SccProjectUniqueName1 = library\\Dms.Core\\Dms.Core.csproj
+		SccProjectTopLevelParentUniqueName1 = master.sln
+		SccProjectName1 = library/Dms.Core
+		SccLocalPath1 = library\\Dms.Core
+		SccProjectUniqueName2 = library\\Dms.Model\\Dms.Model.csproj
+		SccProjectTopLevelParentUniqueName2 = master.sln
+		SccProjectName2 = library/Dms.Model
+		SccLocalPath2 = library\\Dms.Model
+		SccProjectUniqueName3 = library\\Dms.Repository\\Dms.Repository.csproj
+		SccProjectTopLevelParentUniqueName3 = master.sln
+		SccProjectName3 = library/Dms.Repository
+		SccLocalPath3 = library\\Dms.Repository
+		SccProjectUniqueName4 = library\\Dms.Service\\Dms.Service.csproj
+		SccProjectTopLevelParentUniqueName4 = master.sln
+		SccProjectName4 = library/Dms.Service
+		SccLocalPath4 = library\\Dms.Service
+		SccProjectUniqueName5 = website\\dms.master\\dms.master.csproj
+		SccProjectTopLevelParentUniqueName5 = master.sln
+		SccProjectName5 = website/dms.master
+		SccLocalPath5 = website\\dms.master
+	EndGlobalSection
+EndGlobal

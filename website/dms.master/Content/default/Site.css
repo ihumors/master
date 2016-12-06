@@ -1,0 +1,86 @@
+﻿/* Set padding to keep content from hitting the edges */
+.body-content { padding-left: 15px; padding-right: 15px; }
+
+/* Override the default bootstrap behavior where horizontal description lists 
+   will truncate terms that are too long to fit in the left column 
+*/
+.dl-horizontal dt { white-space: normal; }
+
+/* Set width on the form input elements since they're 100% wide by default */
+input,
+select,
+textarea { max-width: 280px; }
+
+header,
+footer,
+.body-content{width:100%;}
+.body-content{overflow:auto;width:100%;margin-bottom:3px;}
+
+.pagination{margin:1px;padding:0px;}
+
+/* Set popup window style */
+.dms-popwin { position: absolute; top: 50%; left: 50%; border: 1px solid #083047; box-shadow: 0 1px 3px 2px #999; display: block; visibility: hidden; background-color: white; width: 0px; height: 0px; overflow: hidden; }
+.dms-popwin-title { position: relative; height: 30px; line-height: 30px; text-indent: 5px; background-color: #F0F0F0; border-bottom: 1px solid #A1B4B0; }
+    .dms-popwin-title div { position: absolute; height: 19px; top: 5px; right: 5px; }
+    .dms-popwin-title a, a.open-dms-win { float: left; width: 21px; height: 19px; display: block; margin-left: 5px; background: url(images/tool.png) no-repeat; }
+a.open-dms-win { position: absolute; bottom: 8px; left: 50%; margin-left: -1px; background-position: 0 0; }
+    a.open-dms-win:hover { background-position: 0 -29px; }
+.dms-popwin-title a.popwin-min { background-position: -29px 0; }
+    .dms-popwin-title a.popwin-min:hover { background-position: -29px -29px; }
+.dms-popwin-title a.popwin-max { background-position: -60px 0; }
+    .dms-popwin-title a.popwin-max:hover { background-position: -60px -29px; }
+.dms-popwin-title a.popwin-revert { background-position: -149px 0; display: none; }
+    .dms-popwin-title a.popwin-revert:hover { background-position: -149px -29px; }
+.dms-popwin-title a.popwin-close { background-position: -89px 0; }
+    .dms-popwin-title a.popwin-close:hover { background-position: -89px -29px; }
+.dms-popwin .resizeBR { position: absolute; width: 14px; height: 14px; right: 0; bottom: 0; overflow: hidden; cursor: nw-resize; z-index: 5; }
+.dms-popwin .resizeL,
+.dms-popwin .resizeT,
+.dms-popwin .resizeR,
+.dms-popwin .resizeB,
+.dms-popwin .resizeLT,
+.dms-popwin .resizeTR,
+.dms-popwin .resizeLB { position: absolute; background: #000; overflow: hidden; opacity: 0; filter: alpha(opacity=0); z-index: 5; }
+.dms-popwin .resizeL, 
+.dms-popwin .resizeR { top: 0; width: 5px; height: 100%; cursor: w-resize; }
+.dms-popwin .resizeR { right: 0; }
+.dms-popwin .resizeT, 
+.dms-popwin .resizeB { width: 100%; height: 5px; cursor: n-resize; }
+.dms-popwin .resizeT { top: 0; }
+.dms-popwin .resizeB { bottom: 0; }
+.dms-popwin .resizeLT, 
+.dms-popwin .resizeTR, 
+.dms-popwin .resizeLB { width: 8px; height: 8px; background: #FF0; }
+.dms-popwin .resizeLT { top: 0; left: 0; cursor: nw-resize; }
+.dms-popwin .resizeTR { top: 0; right: 0; cursor: ne-resize; }
+.dms-popwin .resizeLB { left: 0; bottom: 0; cursor: ne-resize; }
+.dms-popwin .dms-popwin-bottom { text-align: right; margin: 0px 5px 0px 5px; position: relative; height: 30px; line-height: 30px; }
+.dms-popwin .dms-popwin-progress { height: 30px; line-height: 30px; position: absolute; bottom: 0px; left: 0px; }
+.dms-popwin .dms-popwin-content { overflow: auto; position: relative; }
+
+/* loading */
+#loading{line-height:35px;height:35px;font-size:14px;border:1px solid #666;position:absolute;top:40%;left:42%;width:130px;background: white url(images/loading.gif) no-repeat 5px 50%;text-indent:42px; z-index:1000;box-shadow: 0 1px 3px 2px #ccc;display:none }
+#loading img {vertical-align:middle;margin:0px 10px; }
+
+.breadcrumb{padding: 8px 15px;}
+.breadcrumb a {
+    line-height: 1.1;
+    display: inline-block;
+    text-decoration: none;
+}
+.breadcrumb a:after {
+    display: block;
+    content: "";
+    height: 2px;
+    width: 0%;
+    background-color: #2f4050;
+    transition: width 0.5s ease-in-out;
+}
+.breadcrumb a:hover:after,
+.breadcrumb a:focus:after {
+    width: 100%;
+    font-weight:bold;
+}
+footer .pagination{float:right;margin-right:12px;}
+footer .dataTable-info{float:left;margin-left:12px;line-height:30px;}
+.dms-search-container{margin:2px 15px;}

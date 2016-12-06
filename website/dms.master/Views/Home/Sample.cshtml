@@ -1,0 +1,32 @@
+﻿@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    //sample
+}
+@section Header{
+    <h1>header</h1>
+}
+
+@Html.Partial("_PartialPopupWin", new Dms.Master.Models.PopWinModel() { ID = "TestDemo", HasBottomWrapper = true })
+<div style="height:1200px;"></div>
+<button onclick="dms.win.open('', 'TestDemo', null);">erwe</button>
+@section Footer{
+    <ul class="pagination">
+        <li><a href="#">&laquo;</a></li>
+        <li><a href="#">1</a></li>
+        <li><a href="#">2</a></li>
+        <li><a href="#">3</a></li>
+        <li><a href="#">4</a></li>
+        <li><a href="#">5</a></li>
+        <li><a href="#">&raquo;</a></li>
+    </ul>
+}
+
+@section Scripts{
+    <script>
+        $.extend(true, dms.win.setting, {
+            width: 800,
+            height: 350
+        });
+
+    </script>
+}
